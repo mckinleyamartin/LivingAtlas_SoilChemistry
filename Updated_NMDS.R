@@ -10,11 +10,12 @@ m_com = as.matrix(com)
 # create NMDS
 set.seed(123)
 nmds = metaMDS(m_com, distance = "bray")
+nmds
 
 # extract NMDS scores
-data.scores = as.data.frame(scores(nmds)$sites)
+data.scores = as.data.frame(scores(nmds))
 data.scores$Sample = pc$Sample
-data.scores$Salinity = pc$Soil_Salinity_dS/m
+data.scores$Salinity = pc[['Soil_Salinity_dS/m']]
 data.scores$pH = pc$pH_Units
 head(data.scores)
 
