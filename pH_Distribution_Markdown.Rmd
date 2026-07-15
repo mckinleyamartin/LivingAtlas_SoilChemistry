@@ -1,0 +1,37 @@
+---
+title: "Soil Chemistry: pH Distribution"
+author: "McKinley Martin"
+date: "2026-07-15"
+output: pdf_document
+---
+
+This R Markdown file details creating a distribution plot using ggplot2 from a csv file. In particular, this script focuses on the environmental pH distribution of various soil samples. For more information on basic density charts with ggplot2, reference the following link: https://r-graph-gallery.com/21-distribution-plot-using-ggplot2.html \
+
+Start by loading in the ggplot2 package. 
+```{r}
+library(ggplot2)
+```
+\
+Next, read in the csv file as the function. The head() function allows one to preview the dataset without loading in the entire file. 
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+density_function <- read.csv("CIB_Soil_Chemistry_pH.csv")
+head(density_function)
+```
+\
+Finally, set up the script for running the plot. In this case, vertical lines were introduced to demonstrate experimental media pH values for evaluation against initial environmental conditions. 
+```{r}
+ggplot(density_function, aes(x = pH)) + 
+  geom_density(fill = "lightblue", alpha = 0.5) + 
+  
+  # create vertical lines
+  geom_vline(xintercept = 5, linetype = "dashed", color = "red") + 
+  geom_vline(xintercept = 7, linetype = "dashed", color = "blue") + 
+  geom_vline(xintercept = 9, linetype = "dashed", color = "darkgreen") + 
+  
+  theme_minimal() + 
+  
+  # create labels
+  labs(title = "Distribution of Soil pH Values", x = "Soil pH", y = "Density"
+  )
+```
+
