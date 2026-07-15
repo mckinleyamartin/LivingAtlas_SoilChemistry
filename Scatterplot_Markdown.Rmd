@@ -1,9 +1,9 @@
 ---
-output:
-  pdf_document: default
-  html_document: default
+title: 'Soil Chemistry: Scatterplot'
+author: "McKinley Martin"
+date: "2026-07-15"
+output: pdf_document
 ---
-# Soil Chemistry Scatterplot \
 
 This R script creates a scatter plot using ggplot2 from a 2-variable csv file. In this particular case, pH and salinity of a list of soil samples are plotted against one another to demonstrate soil chemistry similarity when the sample was collected. \
 \
