@@ -1,0 +1,45 @@
+---
+title: 'Soil Chemistry: Salinity Distribution'
+author: "McKinley Martin"
+date: "2026-07-15"
+output: pdf_document
+---
+
+This R Markdown file details creating a distribution plot using ggplot2 from a csv file. In particular, this script focuses on the environmental salinity distribution of various soil samples. For more information on basic density charts with ggplot2, reference the following link:
+\
+https://r-graph-gallery.com/21-distribution-plot-using-ggplot2.html \
+
+The following two web pages were referenced in conversion of salinity percentages to dS/m:
+\
+https://www.landscape.sa.gov.au/mr/publications/measuring-salinity 
+\
+https://watereuse.org/salinity-management/ls/ls_3d.html \
+
+Start by loading in the ggplot2 package. 
+```{r}
+library(ggplot2)
+```
+\
+Next, read in the csv file as the function. The as.numeric() function allows one to convert strings to numerical values for plotting. 
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+density_function <- read.csv("CIB_Soil_Chemistry_Salinity.csv")
+density_function$Salinity_dS_m <- as.numeric(density_function$Salinity_dS_m)
+```
+\
+Finally, set up the script for running the plot. In this case, vertical lines were introduced to demonstrate experimental media salinity values for evaluation against initial environmental conditions. 
+```{r, warning=FALSE, message=FALSE}
+ggplot(density_function, aes(x = Salinity_dS_m)) + 
+  geom_density(fill = "lightblue", alpha = 0.5) + 
+  
+  # create vertical lines
+  geom_vline(xintercept = 0, linetype = "dashed", color = "red") + 
+  geom_vline(xintercept = 23.4375, linetype = "dashed", color = "blue") + 
+  geom_vline(xintercept = 46.875, linetype = "dashed", color = "darkgreen") + 
+  
+  theme_minimal() + 
+  
+  # create labels
+  labs(title = "Distribution of Soil Salinity Values", x = "Soil Salinity (dS/m)", 
+       y = "Density"
+  )
+```
