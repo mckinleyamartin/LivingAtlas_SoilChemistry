@@ -1,0 +1,48 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+# Soil Chemistry Scatterplot \
+
+This R script creates a scatter plot using ggplot2 from a 2-variable csv file. In this particular case, pH and salinity of a list of soil samples are plotted against one another to demonstrate soil chemistry similarity when the sample was collected. \
+\
+
+The first step is to import ggplot2
+```{r}
+library(ggplot2)
+```
+\
+Next, read in the csv file. To avoid errors, use the as.numeric() command to convert any string values to numbers. The na.omit() command can also be employed to omit any samples with empty values.
+```{r, warning=FALSE}
+plot_data <- read.csv("SoilChem_NMDS.csv")
+plot_data$pH <- as.numeric(plot_data$pH)
+plot_data$Salinity_dS_m <- as.numeric(plot_data$Salinity_dS_m)
+plot_data <- na.omit(plot_data)
+```
+\
+After data cleaning, the plot script can be set up. In this case, dashed lines were used to demonstrate the experimental pH and salinity values. The intersections of these lines each represent one experimental media, so any clustering near these areas highlights which experimental media were most favorable for certain soil samples based on their original environment. 
+```{r}
+ggplot(plot_data, aes(x = pH, y = Salinity_dS_m)) + 
+  geom_point(size = 3, alpha = 0.7) + 
+  
+  # create vertical lines representing experimental pH values
+  geom_vline(xintercept = 5, linetype = "dashed", color = "red") + 
+  geom_vline(xintercept = 7, linetype = "dashed", color = "blue") + 
+  geom_vline(xintercept = 9, linetype = "dashed", color = "darkgreen") +
+  
+  # create horizontal lines representing experimental salinity values
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") + 
+  geom_hline(yintercept = 23.4375, linetype = "dashed", color = "blue") + 
+  geom_hline(yintercept = 46.875, linetype = "dashed", color = "darkgreen") + 
+  
+  theme_minimal() + 
+  
+  # labeling
+  labs(
+    title = "Relationship Between Soil pH and Salinity", 
+    x = "Soil pH",
+    y = "Salinity (dS/m)"
+  )
+```
+
