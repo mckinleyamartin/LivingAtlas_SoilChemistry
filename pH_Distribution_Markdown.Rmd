@@ -5,7 +5,9 @@ date: "2026-07-15"
 output: pdf_document
 ---
 
-This R Markdown file details creating a distribution plot using ggplot2 from a csv file. In particular, this script focuses on the environmental pH distribution of various soil samples. For more information on basic density charts with ggplot2, reference the following link: https://r-graph-gallery.com/21-distribution-plot-using-ggplot2.html \
+This R Markdown file details creating a distribution plot using ggplot2 from a csv file. In particular, this script focuses on the environmental pH distribution of various soil samples. For more information on basic density charts with ggplot2, reference the following link: 
+\
+https://r-graph-gallery.com/21-distribution-plot-using-ggplot2.html \
 
 Start by loading in the ggplot2 package. 
 ```{r}
