@@ -1,0 +1,54 @@
+---
+title: 'README: Living Atlas Repository'
+author: "McKinley Martin"
+date: "2026-07-15"
+output: pdf_document
+---
+
+Welcome to my soil chemistry repository pertaining to the Living Atlas project!\
+\
+The Living Atlas project collaborates with the California Institute for Biodiversity to create a "living atlas" of California's belowground microbial diversity. The general scope is to culture 8,000 bacterial isolates from the soil samples that are sent to us and to identify which genus each isolate belongs to through DNA extraction and 16s rRNA sequencing. \
+\
+To maximize bacterial growth, we employ nine different experimental media on which two dilutions of each sample are plated. These media vary in pH, salinity, carbon source, and incubation temperature.\ 
+\
+As part of the sampling process, we are sent soil chemistry data for a number of the samples we receive. Out of the data, we are most interested in the pH and salinity of each sample location: analysis of environmental pH and salinity can demonstrate which media are most favorable for which samples. \
+\
+This repository includes R Markdown scripts to generate different plots that are of value in these analyses. Below is a brief tour of the repository which describes the contents of each file: \
+\
+General Files \
+\
+- **README.Rmd** This file!\
+- **Soil Chemistry.Rproj** R project in which I work on files in this repository\
+- **2023-2024_SoilChem_Compiled_01242025 (1).xlsx** Original soil chemistry data\
+- **CIB Soil Chemistry.xlsx** Cleaned soil chemistry data including values of interest\
+- **Plot Screenshots** Folder containing screenshots of plot outputs\
+\
+pH Distribution Curve Files \
+\
+- **pH_Distribution_Markdown.pdf** PDF of the pH distribution curve script markdown\
+- **pH_Distribution_Markdown.Rmd** R markdown file with notes\
+- **SoilChem_pH_Distribution.R** Original R script with limited comments\
+- **CIB_Soil_Chemistry_pH.csv** pH data as a CSV file\
+- **CIB_Soil_Chemistry_pH.xlsx** pH data as an Excel file\
+\
+Salinity Distribution Curve Files \
+\
+- **Salinity_distribution_markdown.pdf** PDF of the salinity distribution curve script markdown\
+- **Salinity_distribution_markdown.Rmd** R markdown file with notes\
+- **SoilChem_Salinity_Distribution.R** Original R script with limited notes\
+- **CIB_Soil_Chemistry_Salinity.csv** Salinity data as a CSV file\
+- **CIB_Soil_Chemistry_Salinity.xlsx** Salinity data as an Excel file\
+\
+Scatter Plot Files \
+\
+- **Scatterplot_Markdown.pdf** PDF of the scatter plot script markdown\
+- **Scatterplot_Markdown.Rmd** R markdown file with notes\
+- **Scatterplot.R** Original R script with limited notes\
+\
+NMDS Files \
+\
+- **NMDS.R** Original NMDS R script with limited notes\
+- **Updated_NMDS.R** Updated NMDS R script with limited notes (some changes made)\
+- **NMDS_data_updated.csv** NMDS data for updated R script as a CSV file\
+- **SoilChem_NMDS.csv** Original NMDS data as a CSV file\
+- **SoilChem_NMDS.xlsx** Original NMDS data as an Excel file
