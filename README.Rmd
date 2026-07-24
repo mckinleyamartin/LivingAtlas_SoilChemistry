@@ -53,7 +53,7 @@ NMDS Files (R) \
 - **SoilChem_NMDS.csv** Original NMDS data as a CSV file\
 - **SoilChem_NMDS.xlsx** Original NMDS data as an Excel file\
 \
-Python Files \
+Python Files\
 - **Scatter Plot in Python.pdf** PDF of the scatter plot Jupyter notebook\
 - **Scatterplot.ipynb** Scatter plot Jupyter notebook with notes\
 - **Scatterplot.py** Original scatter plot python script with limited notes\
